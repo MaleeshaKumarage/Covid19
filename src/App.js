@@ -13,7 +13,8 @@ export default class App extends React.Component {
     state={
         confirmed:0,
         deaths:0,
-        recovered:0,
+        recovered: 0,
+        lastupdated: 0,
         countries:[]
     }
     componentDidMount(){
@@ -27,7 +28,8 @@ export default class App extends React.Component {
         this.setState({
             confirmed:resApi.data.confirmed.value,
             deaths:resApi.data.deaths.value,
-            recovered:resApi.data.recovered.value,
+            recovered: resApi.data.recovered.value,
+            lastupdated: resApi.data.lastUpdate,
             countries
         })
     }
@@ -41,7 +43,8 @@ export default class App extends React.Component {
         this.setState({
             confirmed:res.data.confirmed.value,
             deaths:res.data.deaths.value,
-            recovered:res.data.recovered.value,
+            recovered: res.data.recovered.value,
+            lastupdated: res.data.lastUpdate,
            
         })
         console.log("sdfghjk");
@@ -289,7 +292,7 @@ export default class App extends React.Component {
                         <h4>{this.state.recovered}</h4>
                 </div>
             </div>
-
+                <p >Last update on {this.state.lastupdated}</p>
         </div>
         );
     }
